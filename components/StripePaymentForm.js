@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { Elements, PaymentElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { getStripe } from '../app/lib/stripe';
 
-function CheckoutForm({ total, onSuccess, isProcessing, setIsProcessing }) {
+function CheckoutForm({ total, isProcessing, setIsProcessing }) {
   const stripe = useStripe();
   const elements = useElements();
   const [errorMessage, setErrorMessage] = useState('');

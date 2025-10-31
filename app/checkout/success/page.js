@@ -1,22 +1,26 @@
 'use client';
 
-import { useMemo, useEffect, useState } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
 import Header from '@/components/Header';
 import FaultyTerminal from '@/components/FaultyTerminal';
+import { useMemo, useEffect, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 
-export default function SuccessPage() {
+function SuccessContent() {
   const searchParams = useSearchParams();
   const [status, setStatus] = useState('verifying');
-
   const gridMul = useMemo(() => [2, 1], []);
 
   useEffect(() => {
     const redirectStatus = searchParams.get('redirect_status');
+    const newStatus =
+      redirectStatus === 'succeeded'
+        ? 'success'
+        : redirectStatus === 'failed'
+        ? 'failed'
+        : 'processing';
 
-    if (redirectStatus === 'succeeded') setStatus('success');
-    else if (redirectStatus === 'failed') setStatus('failed');
-    else setStatus('processing');
+    setStatus(newStatus);
   }, [searchParams]);
 
   return (
@@ -133,3 +137,13 @@ export default function SuccessPage() {
     </div>
   );
 }
+
+export default function Page() {
+  return (
+    <Suspense fallback={<div className="text-white text-center pt-20">Loading...</div>}>
+      <SuccessContent />
+    </Suspense>
+  );
+}
+
+export const dynamic = 'force-dynamic';
