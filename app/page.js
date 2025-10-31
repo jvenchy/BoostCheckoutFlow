@@ -115,7 +115,7 @@ export default function Home() {
                       duration: 0.7
                     }}
                     onClick={() => setCurrentStep(2)}
-                    className="px-8 py-4 rounded-2xl text-lg font-bold bg-boost-cream text-black hover:bg-yellow-200 cursor-pointer transition-all"
+                    className="px-4 py-2 sm:px-6 sm:py-3 rounded-2xl text-sm sm:text-base md:text-lg font-bold bg-boost-cream text-black hover:bg-yellow-200 cursor-pointer transition-all"
                   >
                     promote selected songs →
                   </motion.button>

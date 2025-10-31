@@ -180,7 +180,7 @@ export default function ChooseCampaignStep() {
             />
           </div>
 
-          <div className="space-y-4 -mt-20">
+          <div className="space-y-4 mt-12 lg:-mt-20">
             <div className="flex justify-center items-start">
               <Stack
                 cardsData={reversedSongs}

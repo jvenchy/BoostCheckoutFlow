@@ -57,6 +57,7 @@ export default function PopularityProjection({ currentSong, selectedTier }) {
 
     // Helper function to convert popularity value to y coordinate
     const valueToY = (value) => {
+      if (range === 0) return 100; // Avoid division by zero if range is 0
       const normalizedValue = (value - minValue) / range;
       return 200 - (normalizedValue * 180);
     };
@@ -124,7 +125,7 @@ export default function PopularityProjection({ currentSong, selectedTier }) {
         Based on {currentSong?.name}&apos;s current popularity of {projections.currentPopularity}/100
       </p>
 
-      <div className="flex items-center space-x-8 mb-4">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-8 mb-4">
         <div className="flex items-center">
           <span className="text-white mr-2">minimum</span>
           <div className="w-8 h-8 bg-yellow-500 rounded-full"></div>
@@ -144,12 +145,12 @@ export default function PopularityProjection({ currentSong, selectedTier }) {
       <div className="relative h-64 bg-black rounded-lg p-4 overflow-hidden">
         {/* Starting point indicator */}
         <div
-          className="absolute left-4 w-2 h-2 bg-cyan-400 rounded-full z-10 transition-all duration-500"
+          className="absolute left-4 w-2 h-2 bg-indigo-400 rounded-full z-10 transition-all duration-500"
           style={{
-            top: `${projections.valueToY(projections.currentPopularity) * (256 / 200) + 16}px`
+            top: `calc(1rem + ( (16rem - 2rem) * ${projections.valueToY(projections.currentPopularity) / 200} ))`
           }}
         >
-          <div className="absolute left-4 top-1/2 -translate-y-1/2 whitespace-nowrap text-xs text-cyan-400 font-bold">
+          <div className="absolute left-4 top-1/2 -translate-y-1/2 whitespace-nowrap text-xs font-light text-indigo-400 ">
             Current: {projections.currentPopularity}
           </div>
         </div>
