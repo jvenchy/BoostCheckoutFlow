@@ -1,0 +1,17 @@
+"i want to implement a 1-1 copy of the checkout flow for this website, boost, and then improve upon it, but first i need nextjs app router code in javascript for this. after analysing the contents of the screenshots and understanding what they contain do the following. have a header component, a song selection component calling the spotify api, three different checkout views (add songs, choose campagin type, payment confirmation). create components as needed intelligently. i also want to use Stripe Sandbox and Spotify API so give placeholders for those. we'll use a simple supabase table for storing orders (create an order context file to track song(s) selected, promotion tiers applied to each, user details associated with order from payment checkout screen)"
+
+"can we make it so that at each step of this checkout flow rather than having the new content just appear where the old step was, we make it so that when the next step in the flow is prompted (i.e adding song step, choosing campaign step, payment step, etc.) the new view is animated in horizonatally popping in from the right"
+
+"make this component glassmorphic, sexy, and sleek with better margins. "
+
+"change the animation for removing song button to smoothly come in from the right and snap into place, and the icon be a trash can or something (import icon). "
+
+"does this api call get the song number of streams?"
+
+"i want to fix these errors in success/page.js"
+
+"how to make this only on the border not the background"
+
+"i want the 60% off to be an aesthetic gradient from left to right like money green to sea green or something"
+
+# most of the other prompts were just me copy pasting error messages in to the LLM to help it diagnose the issue, i couldnt be bothered to find each and every one. i took a very crappy structure given by the first prompt and reimagined it with the help of external components on reactbits.dev or just my own tinkering and pre-written code from other projects.
